@@ -75,7 +75,7 @@ uploadArchives{
     repositories.mavenDeployer{
         configuration = configurations.oneJar
 
-        repository(project.hasProperty("mavenLocalBase") ? "$mavenLocalBase/content/repositories/thirdparty" : ""){
+        repository(url: project.hasProperty("mavenLocalBase") ? "$mavenLocalBase/content/repositories/thirdparty" : ""){
             authentication(userName: project.hasProperty("mavenUsername") ? "$mavenUsername" : "",
                             password: project.hasProperty("mavenPassword") ? "$mavenPassword" : "")
         }
@@ -83,23 +83,38 @@ uploadArchives{
         pom.project{
             name 'jdotlib'
             packaging 'jar'
-            description ''
+            description 'jDotlib is a simple wrapper for DOT format. Has support official dot guide. #crazylazyrockhack'
 
-            url '' // TODO : add git repository here
+            url 'https://github.com/rojaster/jDotlib'
             inceptionYear '2015'
             scm{
-                url '' // TODO : add link to got
-                connection '' // TODO : add link to got
-                developerConnection '' // TODO : add link to got
+                url 'scm:git@github.com:rojaster/jDotlib.git'
+                connection 'scm:git@github.com:rojaster/jDotlib.git'
+                developerConnection 'scm:git@github.com:rojaster/jDotlib.git'
             }
 
             licenses {
                 license {
-                    name 'GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007, GPLv3'
-                    url 'http://www.gnu.org/licenses/gpl-3.0.txt'
+                    name 'The MIT License (MIT)'
+                    url 'https://opensource.org/licenses/MIT'
                     comments """
                                 Copyright (c) 2015.
-                                By Alekum, ASTEC Corporation. All Rights Reserved under GPLv3
+                                By Alekum, ASTEC Corporation. All Rights Reserved under MIT License.
+
+                                Permission is hereby granted, free of charge, to any person obtaining a copy
+                                of this software and associated documentation files (the "Software"), to deal
+                                in the Software without restriction, including without limitation the rights
+                                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                copies of the Software, and to permit persons to whom the Software is
+                                furnished to do so, subject to the following conditions:
+
+                                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                THE SOFTWARE.
                              """
                     distribution 'repo'
                 }
