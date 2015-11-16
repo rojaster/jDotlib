@@ -1,11 +1,9 @@
 package org.astec.jdotlib.dotgraph.model; 
 
-import org.junit.Test; 
-import org.junit.Before; 
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.TestCase.assertSame;
 import static org.junit.Assert.*;
 
 /** 
