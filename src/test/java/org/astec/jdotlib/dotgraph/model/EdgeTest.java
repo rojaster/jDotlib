@@ -42,7 +42,6 @@ public class EdgeTest
     public void testGetStartNode() throws Exception 
     { 
         assertNotNull(edge.getStartNode());
-        assertTrue(edge.getStartNode() instanceof Node);
     } 
 
     /**
@@ -54,7 +53,6 @@ public class EdgeTest
     public void testGetFinishedNode() throws Exception 
     { 
         assertNotNull(edge.getFinishedNode());
-        assertTrue(edge.getFinishedNode() instanceof Node);
     } 
 
     /**
