@@ -20,6 +20,14 @@ sourceCompatibility = 1.8
 mainClassName='org.astec.jdotlib.dotgraph.main.JDotlibMain'
 applicationDefaultJvmArgs = ['-Dlogback.configurationFile=src/main/resources/logback.groovy']
 
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
 sourceSets{
     main{
         java{
