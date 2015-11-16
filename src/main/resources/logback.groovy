@@ -36,12 +36,6 @@ appender("CONSOLE", ConsoleAppender) {
 }
 
 appender("FILE", FileAppender){
-    filter(LevelFilter){
-        level = INFO
-        onMatch = ACCEPT
-        onMismatch = DENY
-    }
-
     file = logPath + "log.file"
     append = false
     encoder(PatternLayoutEncoder){
@@ -51,12 +45,6 @@ appender("FILE", FileAppender){
 }
 
 appender("HTMLFile", FileAppender){
-    filter(LevelFilter){
-        level = INFO
-        onMatch = ACCEPT
-        onMismatch = DENY
-    }
-
     file = logPath + "log.html"
     append = false
     encoder(LayoutWrappingEncoder){

@@ -3,7 +3,7 @@
  * By Alekum, ASTEC Corporation. All Rights Reserved.
  */
 
-package org.astec.jdotlib.dotgraph;
+package org.astec.jdotlib.dotgraph.model;
 
 import org.astec.jdotlib.dotgraph.attributes.Attribute;
 import org.astec.jdotlib.dotgraph.attributes.Attributes;
@@ -21,7 +21,7 @@ public class Node
 
     Node(String id)
     {
-        this( id, null );
+        this(id, new Attributes());
     }
 
     Node(String id, Attributes attrs)
@@ -58,6 +58,6 @@ public class Node
     @Override
     public String toString()
     {
-        return String.format( "%s%s", this.nodeId, this.attributes.toString() );
+        return String.format( "%s%s;", this.nodeId, this.attributes.toString() );
     }
 }

@@ -63,11 +63,15 @@ public class Attributes
     @Override
     public String toString()
     {
+        if(this.isAttributesEmpty())
+        {
+            return ""; // TODO: if object is empty then  just return empty string to avoid NPE, need fix- ?
+        }
+
         StringBuffer sb = new StringBuffer();
         sb.append("[ ");
 
-        for(Attribute attr : this.getAttributesObjects())
-            sb.append( attr.toString() );
+        this.getAttributesObjects().forEach( (attr) -> sb.append(attr.toString()) );
 
         sb.append(" ]");
         return sb.toString();

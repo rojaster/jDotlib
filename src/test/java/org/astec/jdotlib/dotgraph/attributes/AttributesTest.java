@@ -121,10 +121,13 @@ public class AttributesTest
     * 
     */ 
     @Test
-    public void testToString() throws Exception 
-    { 
-        assertEquals( "[ color=\"black\";style=\"filled\";xlabel=\"textsomehere\"; ]", attributes.toString() );
-    } 
+    public void testToString() throws Exception
+    {
+        assertEquals("[ color=\"black\";style=\"filled\";xlabel=\"textsomehere\"; ]", attributes.toString());
 
-    
+        attributes = attributes.isAttributesEmpty() ? attributes : new Attributes();
+
+        assertNotEquals("[  ]", attributes.toString());
+        assertEquals("", attributes.toString());
+    }
 }

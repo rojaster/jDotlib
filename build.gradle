@@ -14,7 +14,6 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'application'
 
-
 description = "I'm only the noise on the wires"
 
 sourceCompatibility = 1.8

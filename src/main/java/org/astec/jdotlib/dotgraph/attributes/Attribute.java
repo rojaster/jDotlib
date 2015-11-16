@@ -18,8 +18,6 @@ public class Attribute
     private String attribute;
     private String value;
 
-    Attribute(){ this(null,null); }
-
     public Attribute(String attribute, String value)
     {
         this.attribute = attribute;
