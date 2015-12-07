@@ -14,7 +14,7 @@ import java.util.TreeMap;
  * Created by alekum on 02.08.15 23:25.
  */
 
-public class Attributes
+public class Attributes implements Comparable<Attributes>
 {
     final private Map<String,Attribute> attributes;
 
@@ -65,7 +65,8 @@ public class Attributes
     {
         if(this.isAttributesEmpty())
         {
-            return ""; // TODO: if object is empty then  just return empty string to avoid NPE, need fix- ?
+            // TODO: if object is empty then  just return empty string to avoid NPE, need fix- ?
+            return "";
         }
 
         StringBuffer sb = new StringBuffer();
@@ -75,5 +76,17 @@ public class Attributes
 
         sb.append(" ]");
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Attributes o)
+    {
+        if(this == o)
+            return 0;
+
+        if(this.attributes.equals(o.getAttributesMap()))
+            return 0;
+
+        return -1;
     }
 }

@@ -52,6 +52,16 @@ public class Edge<T extends Node>
         this.finishedNode = finished;
     }
 
+    public Attributes getEdgeAttributes()
+    {
+        return this.edgeAttributes;
+    }
+
+    public void setEdgeAttributes(Attributes attrs)
+    {
+        this.edgeAttributes = attrs;
+    }
+
     @Override
     public String toString()
     {
@@ -60,5 +70,20 @@ public class Edge<T extends Node>
                              EdgeOp.DIRECTED, // TODO : need change this property
                              this.finishedNode.getNodeId(),
                              this.edgeAttributes.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(super.equals(obj))
+            return true;
+
+        if(!(obj instanceof Edge))
+            return false;
+
+        Edge e = (Edge) obj;
+
+        return this.startNode.equals(e.getStartNode())
+                && this.finishedNode.equals(e.getFinishedNode());
     }
 }

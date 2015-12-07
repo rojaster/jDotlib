@@ -14,7 +14,7 @@ import org.astec.jdotlib.dotgraph.attributes.Attributes;
  * Created by alekum on 03.08.15 21:07.
  */
 
-public class Node
+public class Node implements Comparable<Node>
 {
     private String nodeId;
     private Attributes attributes;
@@ -59,5 +59,26 @@ public class Node
     public String toString()
     {
         return String.format( "%s%s;", this.nodeId, this.attributes.toString() );
+    }
+
+    @Override
+    public int compareTo(Node o)
+    {
+        if(this == o)
+            return 0;
+
+        return this.nodeId.compareToIgnoreCase(o.getNodeId());
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(super.equals(obj))
+            return true;
+
+        if(!(obj instanceof Node))
+            return false;
+
+        return this.nodeId.equalsIgnoreCase(((Node)obj).getNodeId());
     }
 }

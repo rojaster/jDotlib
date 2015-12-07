@@ -5,12 +5,10 @@
 
 package org.astec.jdotlib.dotgraph.model;
 
-import org.astec.jdotlib.dotgraph.api.IGraph;
 import org.astec.jdotlib.dotgraph.attributes.Attributes;
 import org.astec.jdotlib.dotgraph.attributes.types.GraphType;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * org.astec.jdotlib.dotgraph
@@ -18,11 +16,11 @@ import java.util.TreeSet;
  * Created by alekum on 03.08.15 22:09.
  */
 
-final public class Graph<T extends Node, E extends Edge<T>> implements IGraph<T, E>
+final public class Graph<T extends Node, E extends Edge<T>>
 {
     private GraphType gType;
     private Set<T> nodes;
-    private Set<E> edges;
+    private List<E> edges;
     private Set<Graph> subgraphs;
     private Attributes attributes;
 
@@ -30,7 +28,7 @@ final public class Graph<T extends Node, E extends Edge<T>> implements IGraph<T,
     public Graph(GraphType gtype)
     {
         this(new TreeSet<T>(),
-             new TreeSet<E>(),
+             new ArrayList<E>(),
              new TreeSet<Graph>(),
              new Attributes(),
              gtype);
@@ -39,30 +37,14 @@ final public class Graph<T extends Node, E extends Edge<T>> implements IGraph<T,
     public Graph()
     {
         this(new TreeSet<T>(),
-             new TreeSet<E>(),
+             new ArrayList<E>(),
              new TreeSet<Graph>(),
              new Attributes(),
              GraphType.DIGRAPH);
     }
 
-    public Graph(Set<T> nodes, Set<E> edges)
-    {
-        this(nodes,
-             edges,
-             new TreeSet<>(),
-             new Attributes(),
-             GraphType.DIGRAPH);
-    }
-
     public Graph(Set<T> nodes,
-                 Set<E> edges,
-                 Set<Graph> subgraphs)
-    {
-        this(nodes, edges, subgraphs, new Attributes(), GraphType.DIGRAPH);
-    }
-
-    public Graph(Set<T> nodes,
-                 Set<E> edges,
+                 List<E> edges,
                  Set<Graph> subgraphs,
                  Attributes attrs,
                  GraphType graphType)
@@ -74,25 +56,28 @@ final public class Graph<T extends Node, E extends Edge<T>> implements IGraph<T,
         this.gType = graphType;
     }
 
-    @Override
     public void addNode(T node)
     {
         this.nodes.add(node);
     }
 
-    @Override
+    /*
+     * @throws ClassCastException if the class of the specified element
+     *         prevents it from being added to this set
+     */
+    @SuppressWarnings("unchecked")
     public void addEdge(Edge<T> edge)
     {
+        // TODO : possibility to unsafe cast, but all going to the f*ck
+        // TODO : nodes is not added after edges was added
         this.edges.add((E) edge);
     }
 
-    @Override
     public Iterable<T> getGraphNodes()
     {
         return this.nodes;
     }
 
-    @Override
     public Iterable<E> getGraphEdges()
     {
         return this.edges;

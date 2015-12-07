@@ -8,118 +8,102 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
-/** 
-* Attributes Tester. 
-* 
-* @author alekum 
-* @since <pre>Aug 3, 2015</pre> 
-* @version 1.0 
-*/ 
-public class AttributesTest 
+/**
+ * Attributes Tester.
+ *
+ * @author alekum
+ * @version 1.0
+ * @since <pre>Aug 3, 2015</pre>
+ */
+public class AttributesTest
 {
     Attributes attributes;
 
     @Before
-    public void before() throws Exception 
+    public void before() throws Exception
     {
         attributes = new Attributes();
 
-        attributes.addAttribute( "color", new Attribute("color","black") );
-        attributes.addAttribute( "style", new Attribute("style","filled"));
-        attributes.addAttribute( "xlabel", new Attribute("xlabel","textsomehere"));
-    } 
+        attributes.addAttribute("color", new Attribute("color", "black"));
+        attributes.addAttribute("style", new Attribute("style", "filled"));
+        attributes.addAttribute("xlabel", new Attribute("xlabel", "textsomehere"));
+    }
     
     @After
-    public void after() throws Exception 
+    public void after() throws Exception
     {
         attributes = null;
-    } 
+    }
     
     /**
-    * 
-    * Method: addAttribute(String attrName, Attribute attr) 
-    * 
-    */ 
+     * Method: addAttribute(String attrName, Attribute attr)
+     */
     @Test
-    public void testAddAttribute() throws Exception 
+    public void testAddAttribute() throws Exception
     {
         attributes.addAttribute("color", new Attribute("color", "black"));
         assertTrue(attributes.containsAttribute("color"));
         assertTrue(attributes.getAttributeByName("color").getAttributeValue().equals("black"));
-    } 
+    }
 
     /**
-    * 
-    * Method: getAttributesMap() 
-    * 
-    */ 
+     * Method: getAttributesMap()
+     */
     @Test
-    public void testGetAttributesMap() throws Exception 
+    public void testGetAttributesMap() throws Exception
     {
         assertTrue(attributes.getAttributesMap() instanceof Map);
-    } 
+    }
 
     /**
-    * 
-    * Method: getAttributeByName(String attrName) 
-    * 
-    */ 
+     * Method: getAttributeByName(String attrName)
+     */
     @Test
-    public void testGetAttributeByName() throws Exception 
-    { 
+    public void testGetAttributeByName() throws Exception
+    {
         assertTrue(attributes.getAttributeByName("color").getAttributeName().equals("color"));
-    } 
+    }
 
     /**
-    * 
-    * Method: getAttributesNames() 
-    * 
-    */ 
+     * Method: getAttributesNames()
+     */
     @Test
-    public void testGetAttributesNames() throws Exception 
+    public void testGetAttributesNames() throws Exception
     {
         for(String key : attributes.getAttributesNames())
             assertTrue(key.equals("color") || key.equals("style") || key.equals("xlabel"));
-    } 
+    }
 
     /**
-    * 
-    * Method: getAttributesObjects() 
-    * 
-    */ 
+     * Method: getAttributesObjects()
+     */
     @Test
-    public void testGetAttributesObjects() throws Exception 
-    { 
+    public void testGetAttributesObjects() throws Exception
+    {
         assertTrue(attributes.getAttributesObjects() instanceof Iterable);
-    } 
+    }
 
     /**
-    * 
-    * Method: isAttributesEmpty() 
-    * 
-    */ 
+     * Method: isAttributesEmpty()
+     */
     @Test
-    public void testIsAttributesEmpty() throws Exception 
-    { 
-        assertFalse( attributes.isAttributesEmpty() );
-    } 
+    public void testIsAttributesEmpty() throws Exception
+    {
+        assertFalse(attributes.isAttributesEmpty());
+    }
 
     /**
-    * 
-    * Method: containsAttribute(String attrName) 
-    * 
-    */ 
+     * Method: containsAttribute(String attrName)
+     */
     @Test
-    public void testContainsAttribute() throws Exception 
-    { 
+    public void testContainsAttribute() throws Exception
+    {
         assertTrue(attributes.containsAttribute("style"));
-    } 
+    }
 
     /**
-    * 
-    * Method: toString() 
-    * 
-    */ 
+     * Method: toString()
+     */
     @Test
     public void testToString() throws Exception
     {
@@ -129,5 +113,14 @@ public class AttributesTest
 
         assertNotEquals("[  ]", attributes.toString());
         assertEquals("", attributes.toString());
+    }
+
+    /**
+     * Method: compareTo(Attributes o)
+     */
+    @Test
+    public void testCompareTo() throws Exception
+    {
+
     }
 }
