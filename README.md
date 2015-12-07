@@ -1,2 +1,3 @@
 # jDotlib
-jDotlib is a simple wrapper for DOT format. Has support official dot guide: http://www.graphviz.org/Documentation/dotguide.pdf
+jDotlib is a simple wrapper for DOT format. Supports the official DOT guide:
+http://www.graphviz.org/Documentation/dotguide.pdf
