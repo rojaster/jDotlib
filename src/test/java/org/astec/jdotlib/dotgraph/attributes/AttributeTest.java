@@ -75,8 +75,8 @@ public class AttributeTest
         assert_().that(attr2).isNotEqualTo(attr1);
 
         assert_().that(attr0.compareTo(attr2)).isEqualTo(0);
-        assert_().that(attr1.compareTo(attr0)).isEqualTo(-1);
-
+        assert_().that(attr0.compareTo(attr1)).isNotEqualTo(0);
+        assert_().that(attr1.compareTo(attr0)).isNotEqualTo(0);
         assert_().that(attr0.compareTo(attr0)).isEqualTo(0);
     }
 } 
