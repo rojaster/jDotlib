@@ -26,6 +26,9 @@ public class Node implements Comparable<Node>
 
     Node(String id, Attributes attrs)
     {
+        if(id.isEmpty())
+            throw new IllegalArgumentException("Node's Id cannot be empty");
+
         this.nodeId = id;
         this.attributes = attrs;
     }
