@@ -18,6 +18,9 @@ public class Attribute implements Comparable<Attribute>
 
     public Attribute(String name, String value)
     {
+        if(name.isEmpty() || value.isEmpty())
+            throw new IllegalArgumentException("Attribute name or/and value cannot be empty");
+
         this.name = name;
         this.value = value;
     }
@@ -43,9 +46,6 @@ public class Attribute implements Comparable<Attribute>
     {
         if(this == o)
             return 0;
-
-        System.out.println(this.name.compareToIgnoreCase(o.getAttributeName())
-                                   | this.value.compareToIgnoreCase(o.getAttributeValue()));
 
         return this.name.compareToIgnoreCase(o.getAttributeName())
                 | this.value.compareToIgnoreCase(o.getAttributeValue());
