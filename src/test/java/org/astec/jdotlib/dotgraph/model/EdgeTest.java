@@ -1,4 +1,9 @@
-package org.astec.jdotlib.dotgraph.model; 
+/*
+ * Copyright (c) 2015.
+ * By Alekum, ASTEC Corporation. All Rights Reserved.
+ */
+
+package org.astec.jdotlib.dotgraph.model;
 
 import org.junit.After;
 import org.junit.Before;
