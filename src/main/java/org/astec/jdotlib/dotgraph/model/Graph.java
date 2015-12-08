@@ -21,7 +21,7 @@ final public class Graph<T extends Node, E extends Edge<T>>
     private GraphType gType;
     private Set<T> nodes;
     private List<E> edges;
-    private Set<Graph> subgraphs;
+    private List<Graph> subgraphs;
     private Attributes attributes;
 
 
@@ -29,7 +29,7 @@ final public class Graph<T extends Node, E extends Edge<T>>
     {
         this(new TreeSet<T>(),
              new ArrayList<E>(),
-             new TreeSet<Graph>(),
+             new ArrayList<Graph>(),
              new Attributes(),
              gtype);
     }
@@ -38,14 +38,14 @@ final public class Graph<T extends Node, E extends Edge<T>>
     {
         this(new TreeSet<T>(),
              new ArrayList<E>(),
-             new TreeSet<Graph>(),
+             new ArrayList<Graph>(),
              new Attributes(),
              GraphType.DIGRAPH);
     }
 
     public Graph(Set<T> nodes,
                  List<E> edges,
-                 Set<Graph> subgraphs,
+                 List<Graph> subgraphs,
                  Attributes attrs,
                  GraphType graphType)
     {
@@ -69,8 +69,13 @@ final public class Graph<T extends Node, E extends Edge<T>>
     public void addEdge(Edge<T> edge)
     {
         // TODO : possibility to unsafe cast, but all going to the f*ck
-        // TODO : nodes is not added after edges was added
-        this.edges.add((E) edge);
+        // I'm sorry
+        Edge<T> e = edge;
+
+        this.addNode(e.getStartNode());
+        this.addNode(e.getFinishedNode());
+
+        this.edges.add((E) e);
     }
 
     public Iterable<T> getGraphNodes()
@@ -98,10 +103,28 @@ final public class Graph<T extends Node, E extends Edge<T>>
         this.gType = type;
     }
 
+    public Attributes getGraphAttributes()
+    {
+        return this.attributes;
+    }
+
+    public void setGraphAttributes(Attributes attrs)
+    {
+        this.attributes = attrs;
+    }
+
     @Override
     public String toString()
     {
-        // TODO : Text DOT Graph representation
-        return "graph fly";
+        StringBuffer sb = new StringBuffer();
+        sb.append( this.gType == GraphType.DIGRAPH ? "digraph" : "graph" );
+        sb.append(" { ");
+
+        this.nodes.forEach(n->sb.append(n.toString()));
+        this.edges.forEach(e->sb.append(e.toString()));
+        sb.append(this.attributes.toString());
+
+        sb.append(" } ");
+        return sb.toString();
     }
 }
