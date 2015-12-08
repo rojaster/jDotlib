@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2015.
+ * By Alekum, ASTEC Corporation. All Rights Reserved.
+ */
+
+
 package org.astec.jdotlib.dotgraph.model;
 
 import org.astec.jdotlib.dotgraph.attributes.Attribute;
