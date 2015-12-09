@@ -1,5 +1,7 @@
 package org.astec.jdotlib.dotgraph.attributes;
 
+import org.astec.jdotlib.dotgraph.attributes.types.Colors;
+import org.astec.jdotlib.dotgraph.attributes.types.Shapes;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -121,6 +123,20 @@ public class AttributesTest
     @Test
     public void testCompareTo() throws Exception
     {
+        Attributes attrs0 = new Attributes();
+        Attributes attrs1 = new Attributes();
 
+        Attribute attrColor = new Attribute("color", Colors.BLACK);
+        Attribute attrColor1 = new Attribute("color", Colors.BLACK);
+
+        attrs0.addAttribute("color", attrColor);
+        attrs1.addAttribute("color", attrColor1);
+
+        assertEquals(0, attrs0.compareTo(attrs1));
+
+        Attribute attrShape = new Attribute("shape", Shapes.EGG);
+        attrs1.addAttribute("shape", attrShape);
+
+        assertNotEquals(0, attrs0.compareTo(attrs1));
     }
 }

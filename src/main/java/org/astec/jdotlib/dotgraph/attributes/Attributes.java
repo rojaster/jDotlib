@@ -6,6 +6,7 @@
 package org.astec.jdotlib.dotgraph.attributes;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -84,7 +85,10 @@ public class Attributes implements Comparable<Attributes>
         if(this == o)
             return 0;
 
-        if(this.attributes.equals(o.getAttributesMap()))
+        Set<String> key1 = this.attributes.keySet();
+        Set<String> key2 = o.getAttributesMap().keySet();
+
+        if(key1.equals(key2))
             return 0;
 
         return -1;
