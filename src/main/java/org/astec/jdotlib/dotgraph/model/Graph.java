@@ -139,11 +139,11 @@ final public class Graph<T extends Node, E extends Edge<T>>
     @Override
     public boolean equals(Object obj )
     {
+        if(super.equals(obj))
+            return true;
+
         if(!(obj instanceof Graph))
             return false;
-
-        if(this == obj)
-            return true;
 
         return this.label.equals( ((Graph) obj).getGraphLabel() );
     }
