@@ -6,7 +6,6 @@
 package org.astec.jdotlib.dotgraph.model;
 
 import org.astec.jdotlib.dotgraph.attributes.Attributes;
-import org.astec.jdotlib.dotgraph.attributes.types.EdgeOp;
 
 /**
  * org.astec.jdotlib.dotgraph
@@ -27,6 +26,9 @@ public class Edge<T extends Node>
 
     public Edge(T started, T finished, Attributes attrs)
     {
+        if(started == null || finished == null)
+            throw new IllegalArgumentException("Node must not be null");
+
         this.startNode = started;
         this.finishedNode = finished;
         this.edgeAttributes = attrs;
@@ -44,11 +46,17 @@ public class Edge<T extends Node>
 
     public void setStartNode( T start )
     {
+        if(start == null)
+            throw new IllegalArgumentException("Node must not be null");
+
         this.startNode = start;
     }
 
     public void setFinishedNode( T finished )
     {
+        if(finished == null)
+            throw new IllegalArgumentException("Node must not be null");
+
         this.finishedNode = finished;
     }
 
@@ -67,7 +75,7 @@ public class Edge<T extends Node>
     {
         return String.format("%s%s%s%s;",
                              this.startNode.getNodeId(),
-                             EdgeOp.DIRECTED, // TODO : need change this property
+                             " -> ", // TODO : need change this property
                              this.finishedNode.getNodeId(),
                              this.edgeAttributes.toString());
     }
