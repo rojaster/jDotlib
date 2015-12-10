@@ -135,4 +135,16 @@ final public class Graph<T extends Node, E extends Edge<T>>
         sb.append(" } ");
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object obj )
+    {
+        if(!(obj instanceof Graph))
+            return false;
+
+        if(this == obj)
+            return true;
+
+        return this.label.equals( ((Graph) obj).getGraphLabel() );
+    }
 }
