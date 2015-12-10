@@ -26,8 +26,8 @@ public class Node implements Comparable<Node>
 
     Node(String id, Attributes attrs)
     {
-        if(id.isEmpty())
-            throw new IllegalArgumentException("Node's Id cannot be empty");
+        if(id == null || id.isEmpty())
+            throw new IllegalArgumentException("Node Id must not be empty");
 
         this.nodeId = id;
         this.attributes = attrs;
@@ -40,6 +40,9 @@ public class Node implements Comparable<Node>
 
     public void setNodeId(String id)
     {
+        if(id == null || id.isEmpty())
+            throw new IllegalArgumentException("Node Id must not be null or empty!");
+
         this.nodeId = id;
     }
 
