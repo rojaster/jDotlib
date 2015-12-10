@@ -25,14 +25,14 @@ final public class Graph<T extends Node, E extends Edge<T>>
     private List<Graph> subgraphs;
     private Attributes attributes;
 
-    public Graph(String l)
+    public Graph(String label)
     {
-        this(l, GraphType.DIGRAPH);
+        this(label, GraphType.DIGRAPH);
     }
 
-    public Graph(String l, GraphType gtype)
+    public Graph(String label, GraphType gtype)
     {
-        this(l,
+        this(label,
              new TreeSet<T>(),
              new ArrayList<E>(),
              new ArrayList<Graph>(),
