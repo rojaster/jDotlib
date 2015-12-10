@@ -18,42 +18,50 @@ import java.util.*;
 
 final public class Graph<T extends Node, E extends Edge<T>>
 {
+    private String label;
     private GraphType gType;
     private Set<T> nodes;
     private List<E> edges;
     private List<Graph> subgraphs;
     private Attributes attributes;
 
-
-    public Graph(GraphType gtype)
+    public Graph(String l)
     {
-        this(new TreeSet<T>(),
+        this(l, GraphType.DIGRAPH);
+    }
+
+    public Graph(String l, GraphType gtype)
+    {
+        this(l,
+             new TreeSet<T>(),
              new ArrayList<E>(),
              new ArrayList<Graph>(),
              new Attributes(),
              gtype);
     }
 
-    public Graph()
-    {
-        this(new TreeSet<T>(),
-             new ArrayList<E>(),
-             new ArrayList<Graph>(),
-             new Attributes(),
-             GraphType.DIGRAPH);
-    }
 
-    public Graph(Set<T> nodes,
+    public Graph(String l,
+                 Set<T> nodes,
                  List<E> edges,
                  List<Graph> subgraphs,
                  Attributes attrs,
                  GraphType graphType)
     {
+        if(l.isEmpty())
+            throw new IllegalArgumentException("Graph's label cannot be empty");
+
+        this.label = l;
         this.nodes = nodes;
         this.edges = edges;
         this.subgraphs = subgraphs;
         this.attributes = attrs;
         this.gType = graphType;
+    }
+
+    public String getGraphLabel()
+    {
+        return this.label;
     }
 
     public void addNode(T node)
@@ -117,7 +125,7 @@ final public class Graph<T extends Node, E extends Edge<T>>
     public String toString()
     {
         StringBuffer sb = new StringBuffer();
-        sb.append( this.gType == GraphType.DIGRAPH ? "digraph" : "graph" );
+        sb.append( this.gType == GraphType.DIGRAPH ? "digraph" : "graph"  + this.label);
         sb.append(" { ");
 
         this.nodes.forEach(n->sb.append(n.toString()));
