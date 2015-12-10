@@ -31,7 +31,7 @@ public class GraphTest
     @Before
     public void before() throws Exception
     {
-        graph = new Graph<>();
+        graph = new Graph<>("graph1");
     }
     
     @After
