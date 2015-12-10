@@ -11,7 +11,7 @@ package org.astec.jdotlib.dotgraph.attributes;
  * jDotlib
  * Created by alekum on 03.08.15 15:32.
  */
-public class Attribute implements Comparable<Attribute>
+public class Attribute
 {
     private String name;
     private String value;
@@ -42,12 +42,15 @@ public class Attribute implements Comparable<Attribute>
     }
 
     @Override
-    public int compareTo(Attribute o)
+    public boolean equals(Object obj)
     {
-        if(this == o)
-            return 0;
+        if(super.equals(obj))
+            return true;
 
-        return this.name.compareToIgnoreCase(o.getAttributeName())
-                | this.value.compareToIgnoreCase(o.getAttributeValue());
+        if(!(obj instanceof Attribute))
+            return false;
+
+        return this.name.equalsIgnoreCase(((Attribute) obj).getAttributeName())
+                | this.value.equalsIgnoreCase(((Attribute) obj).getAttributeValue());
     }
 }
