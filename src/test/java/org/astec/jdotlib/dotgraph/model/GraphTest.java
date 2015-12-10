@@ -102,24 +102,6 @@ public class GraphTest
     }
 
     /**
-     * Method: getGraphNodes()
-     */
-    //@Test
-    //public void testGetGraphNodes() throws Exception
-    //{
-    //    //TODO: Test goes here...
-    //}
-
-    /**
-     * Method: getGraphEdges()
-     */
-    //@Test
-    //public void testGetGraphEdges() throws Exception
-    //{
-    //    //TODO: Test goes here...
-    //}
-
-    /**
      * Method: addEdge(T start, T finished)
      */
     @Test
@@ -189,12 +171,6 @@ public class GraphTest
         graph.addEdge(node0, node1);
         graph.addEdge(node1, node2);
         graph.addEdge(edge);
-
-        //Attributes attrsGraph = new Attributes();
-        //Attribute attrGraph0 = new Attribute("node", "[ shape=box; ]");
-
-        //attrsGraph.addAttribute("node",attrGraph0);
-        //graph.setGraphAttributes(attrsGraph);
 
         String expectedResult = "digraph { a0[ color=\"black\";shape=\"octagon\"; ];" +
                                  "a1;a2[ color=\"black\";shape=\"octagon\"; ];"       +
