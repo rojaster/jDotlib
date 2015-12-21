@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static com.google.common.truth.Truth.assert_;
 import static org.junit.Assert.*;
 
 /**
@@ -54,6 +55,7 @@ public class AttributesTest
     @Test
     public void testGetAttributesMap() throws Exception
     {
+        // Just a joke =)
         assertTrue(attributes.getAttributesMap() instanceof Map);
     }
 
@@ -109,12 +111,14 @@ public class AttributesTest
     @Test
     public void testToString() throws Exception
     {
-        assertEquals("[ color=\"black\";style=\"filled\";xlabel=\"textsomehere\"; ]", attributes.toString());
+        assert_().that(attributes.toString()).contains("color=\"black\";");
+        assert_().that(attributes.toString()).contains("style=\"filled\";");
+        assert_().that(attributes.toString()).contains("xlabel=\"textsomehere\";");
 
         attributes = attributes.isAttributesEmpty() ? attributes : new Attributes();
 
         assertNotEquals("[  ]", attributes.toString());
-        assertEquals("", attributes.toString());
+        assert_().that(attributes.toString()).isEmpty();
     }
 
     /**
