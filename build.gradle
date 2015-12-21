@@ -66,10 +66,12 @@ task javadocJar(type: Jar, dependsOn: javadoc){
 }
 
 artifacts{
-    archives jar
     archives sourcesJar
     archives javadocJar
+    archives jar
 }
+
+uploadArchives.dependsOn  sourcesJar, javadocJar, jar
 /**************************** Source and Javadoc Artifacts ************************************************************/
 
 
@@ -88,6 +90,10 @@ uploadArchives{
         }
 
         pom.project{
+            groupId project.group
+            artifactId project.name
+            version project.version.split('-')[0]
+
             name 'jdotlib'
             packaging 'jar'
             description 'jDotlib is a simple wrapper for DOT format. Has support official dot guide. #crazylazyrockhack'
