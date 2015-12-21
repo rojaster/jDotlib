@@ -48,8 +48,8 @@ final public class Graph<T extends Node, E extends Edge<T>>
                  Attributes attrs,
                  GraphType graphType)
     {
-        if(l.isEmpty())
-            throw new IllegalArgumentException("Graph's label cannot be empty");
+        if(l.isEmpty() || graphType == null)
+            throw new IllegalArgumentException("Label and Type of Graph must not be null or empty");
 
         this.label = l;
         this.nodes = nodes;
@@ -66,6 +66,9 @@ final public class Graph<T extends Node, E extends Edge<T>>
 
     public void addNode(T node)
     {
+        if(node == null)
+            throw new IllegalArgumentException("Node must no be null");
+
         this.nodes.add(node);
     }
 
@@ -76,8 +79,9 @@ final public class Graph<T extends Node, E extends Edge<T>>
     @SuppressWarnings("unchecked")
     public void addEdge(Edge<T> edge)
     {
-        // TODO : possibility to unsafe cast, but all going to the f*ck
-        // I'm sorry
+        if(edge == null)
+            throw new IllegalArgumentException("Edge must not be null");
+
         Edge<T> e = edge;
 
         this.addNode(e.getStartNode());
@@ -98,6 +102,9 @@ final public class Graph<T extends Node, E extends Edge<T>>
 
     public void addEdge(T start, T finished)
     {
+        if(start == null || finished == null)
+            throw new IllegalArgumentException("Node must not be null");
+
         this.addEdge(new Edge<T>(start, finished));
     }
 
@@ -108,6 +115,9 @@ final public class Graph<T extends Node, E extends Edge<T>>
 
     public void setGraphType(GraphType type)
     {
+        if(type == null)
+            throw new IllegalArgumentException("Type of Graph must not be null");
+
         this.gType = type;
     }
 
