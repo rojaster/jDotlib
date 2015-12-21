@@ -5,9 +5,9 @@
 
 package org.astec.jdotlib.dotgraph.attributes;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 /**
  * org.astec.jdotlib.dotgraph.attributes
@@ -21,7 +21,7 @@ public class Attributes implements Comparable<Attributes>
 
     public Attributes()
     {
-        this.attributes = new TreeMap<>();
+        this.attributes = new HashMap<>();
     }
 
     public void addAttribute(String attrName, Attribute attr)
