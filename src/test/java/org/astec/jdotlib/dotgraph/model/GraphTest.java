@@ -25,7 +25,6 @@ import static com.google.common.truth.Truth.assert_;
  */
 public class GraphTest
 {
-
     Graph<Node, Edge<Node>> graph;
 
     @Before
@@ -180,5 +179,19 @@ public class GraphTest
         assert_().that(graph.toString()).contains(expectedResult);
         assert_().that(graph.toString()).startsWith("digraph");
         assert_().that(graph.toString()).doesNotContain("b3");
+    }
+
+    /**
+     * Method: equals(Object obj)
+     */
+    @Test
+    public void testEquals() throws Exception
+    {
+        Graph<Node, Edge<Node>> testEqGraph = new Graph<>(graph.getGraphLabel());
+        Graph<Node, Edge<Node>> testNeqGraph = new Graph<>("graphNotEqual");
+
+        assert_().that(graph).isEqualTo(testEqGraph);
+        assert_().that(graph).isNotEqualTo(testNeqGraph);
+        assert_().that(graph).isEqualTo(graph);
     }
 } 
