@@ -13,6 +13,8 @@ package org.astec.jdotlib.dotgraph.attributes.types;
 
 public final class Arrowheads
 {
+    private Arrowheads(){};
+
     public static final String NORMAL  = "normal";
     public static final String DOT     = "dot";
     public static final String ODOT    = "odot";

@@ -38,29 +38,29 @@ public class EdgeTest
     
     /**
     * 
-    * Method: getStartNode() 
+    * Method: getSource()
     * 
     */ 
     @Test
     public void testGetStartNode() throws Exception 
     { 
-        assertNotNull(edge.getStartNode());
+        assertNotNull(edge.getSource());
     } 
 
     /**
     * 
-    * Method: getFinishedNode() 
+    * Method: getTarget()
     * 
     */ 
     @Test
     public void testGetFinishedNode() throws Exception 
     { 
-        assertNotNull(edge.getFinishedNode());
+        assertNotNull(edge.getTarget());
     } 
 
     /**
     * 
-    * Method: setStartNode(T start) 
+    * Method: setSource(T start)
     * 
     */ 
     @Test
@@ -68,14 +68,14 @@ public class EdgeTest
     { 
         final Node n = new Node("n_test");
 
-        edge.setStartNode(n);
+        edge.setSource(n);
 
-        assertSame(n, edge.getStartNode());
+        assertSame(n, edge.getSource());
     } 
 
     /**
     * 
-    * Method: setFinishedNode(T finished) 
+    * Method: setTarget(T finished)
     * 
     */ 
     @Test
@@ -83,9 +83,9 @@ public class EdgeTest
     { 
         final Node n = new Node("n_test");
 
-        edge.setFinishedNode(n);
+        edge.setTarget(n);
 
-        assertSame(n, edge.getFinishedNode());
+        assertSame(n, edge.getTarget());
     }
 
     /**

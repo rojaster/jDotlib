@@ -13,6 +13,8 @@ package org.astec.jdotlib.dotgraph.attributes.types;
 
 public class Colors
 {
+    private Colors(){};
+
     final public static String AQUA        = "aqua";
     final public static String BLACK       = "black";
     final public static String BLUE        = "blue";

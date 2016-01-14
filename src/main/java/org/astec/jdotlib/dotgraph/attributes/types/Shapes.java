@@ -12,6 +12,8 @@ package org.astec.jdotlib.dotgraph.attributes.types;
  */
 public final class Shapes
 {
+    private Shapes(){};
+
     public static final String BOX           = "box";
     public static final String POLYGON       = "polygon";
     public static final String ELLIPSE       = "ellipse";

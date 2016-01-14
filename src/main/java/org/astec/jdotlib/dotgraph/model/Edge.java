@@ -15,8 +15,8 @@ import org.astec.jdotlib.dotgraph.attributes.Attributes;
 
 public class Edge<T extends Node>
 {
-    private T startNode;
-    private T finishedNode;
+    private T source;
+    private T target;
     private Attributes edgeAttributes;
 
     public Edge(T started, T finished)
@@ -29,35 +29,35 @@ public class Edge<T extends Node>
         if(started == null || finished == null)
             throw new IllegalArgumentException("Node must not be null");
 
-        this.startNode = started;
-        this.finishedNode = finished;
+        this.source = started;
+        this.target = finished;
         this.edgeAttributes = attrs;
     }
 
-    public T getStartNode()
+    public T getSource()
     {
-        return this.startNode;
+        return this.source;
     }
 
-    public T getFinishedNode()
+    public T getTarget()
     {
-        return this.finishedNode;
+        return this.target;
     }
 
-    public void setStartNode( T start )
+    public void setSource(T start )
     {
         if(start == null)
             throw new IllegalArgumentException("Node must not be null");
 
-        this.startNode = start;
+        this.source = start;
     }
 
-    public void setFinishedNode( T finished )
+    public void setTarget(T finished )
     {
         if(finished == null)
             throw new IllegalArgumentException("Node must not be null");
 
-        this.finishedNode = finished;
+        this.target = finished;
     }
 
     public Attributes getEdgeAttributes()
@@ -74,9 +74,9 @@ public class Edge<T extends Node>
     public String toString()
     {
         return String.format("%s%s%s%s;",
-                             this.startNode.getNodeId(),
+                             this.source.getNodeId(),
                              " -> ", // TODO : need change this property
-                             this.finishedNode.getNodeId(),
+                             this.target.getNodeId(),
                              this.edgeAttributes.toString());
     }
 
@@ -91,7 +91,7 @@ public class Edge<T extends Node>
 
         Edge e = (Edge) obj;
 
-        return this.startNode.equals(e.getStartNode())
-                && this.finishedNode.equals(e.getFinishedNode());
+        return this.source.equals(e.getSource())
+                && this.target.equals(e.getTarget());
     }
 }
