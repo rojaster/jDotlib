@@ -65,7 +65,7 @@ task javadocJar(type: Jar, dependsOn: javadoc){
     from javadoc.destinationDir
 }
 
-artifacts{
+artifacts {
     archives sourcesJar
     archives javadocJar
     archives jar
@@ -76,6 +76,11 @@ uploadArchives.dependsOn  sourcesJar, javadocJar, jar
 
 
 /**************************** Maven Upload Archives *******************************************************************/
+configurations.archives.with {
+    artifacts.remove artifacts.find { it.archiveTask.is distZip }
+    artifacts.remove artifacts.find { it.archiveTask.is distTar }
+}
+
 configurations{
     oneJar
 }
@@ -112,7 +117,7 @@ uploadArchives{
                     url 'https://opensource.org/licenses/MIT'
                     comments """
                                 Copyright (c) 2015.
-                                By Alekum, ASTEC Corporation. All Rights Reserved under MIT License.
+                                By Alekum, All Rights Reserved under MIT License.
 
                                 Permission is hereby granted, free of charge, to any person obtaining a copy
                                 of this software and associated documentation files (the "Software"), to deal
