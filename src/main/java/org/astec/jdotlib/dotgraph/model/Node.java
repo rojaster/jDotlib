@@ -19,12 +19,12 @@ public class Node implements Comparable<Node>
     private String nodeId;
     private Attributes attributes;
 
-    Node(String id)
+    public Node(String id)
     {
         this(id, new Attributes());
     }
 
-    Node(String id, Attributes attrs)
+    public Node(String id, Attributes attrs)
     {
         if(id == null || id.isEmpty())
             throw new IllegalArgumentException("Node Id must not be empty");

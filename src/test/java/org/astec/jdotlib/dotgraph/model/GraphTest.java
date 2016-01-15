@@ -380,7 +380,7 @@ public class GraphTest
         graph.removeAllNodes();
 
         Attributes attrsNodes = new Attributes();
-        Attribute attrNodeColor = new Attribute("color", Colors.BLACK);
+        Attribute attrNodeColor = new Attribute("color", "#FEFF8D");
         Attribute attrNodeShape = new Attribute("shape", Shapes.OCTAGON);
 
         attrsNodes.addAttribute("color", attrNodeColor);
@@ -404,8 +404,8 @@ public class GraphTest
         graph.addEdge(edge);
 
 
-        String expectedResult = "digraph graphTest { a0[ color=\"black\";shape=\"octagon\"; ];" +
-                "a1;a2[ color=\"black\";shape=\"octagon\"; ];"       +
+        String expectedResult = "digraph graphTest { a0[ color=\"#FEFF8D\";shape=\"octagon\"; ];" +
+                "a1;a2[ color=\"#FEFF8D\";shape=\"octagon\"; ];"       +
                 "a3;a0 -> a1;a1 -> a2;a2 -> a3[ color=\"green\"; ]; }";
 
         assert_().that(graph.getDot()).isNotEmpty();
