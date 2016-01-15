@@ -251,7 +251,7 @@ public class Graph<T extends Node, E extends Edge<T>> implements IGraph<T, E>
     public String toString()
     {
         StringBuffer sb = new StringBuffer();
-        sb.append( this.gType == GraphType.DIGRAPH ? "digraph" : "graph"  + this.label);
+        sb.append( ( this.gType == GraphType.DIGRAPH ? "digraph " : "graph " ) + this.label);
         sb.append(" { ");
 
         this.nodes.forEach(n->sb.append(n.toString()));

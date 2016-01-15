@@ -26,9 +26,7 @@ public class Attributes implements Comparable<Attributes>
 
     public void addAttribute(String attrName, Attribute attr)
     {
-
-        if( !this.attributes.containsKey( attrName ) )
-            this.attributes.put( attrName , attr );
+        this.attributes.put(attrName,attr);
     }
 
     public Map<String, Attribute> getAttributesMap()
@@ -61,12 +59,21 @@ public class Attributes implements Comparable<Attributes>
         return this.attributes.containsKey(attrName);
     }
 
+    public void removeAttributeByName(String attrName)
+    {
+        this.attributes.remove(attrName);
+    }
+
+    public void removeAllAttributes()
+    {
+        this.attributes.clear();
+    }
+
     @Override
     public String toString()
     {
         if(this.isAttributesEmpty())
         {
-            // TODO: if object is empty then  just return empty string to avoid NPE, need fix- ?
             return "";
         }
 

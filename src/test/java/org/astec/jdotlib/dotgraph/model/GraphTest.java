@@ -404,7 +404,7 @@ public class GraphTest
         graph.addEdge(edge);
 
 
-        String expectedResult = "digraph { a0[ color=\"black\";shape=\"octagon\"; ];" +
+        String expectedResult = "digraph graphTest { a0[ color=\"black\";shape=\"octagon\"; ];" +
                 "a1;a2[ color=\"black\";shape=\"octagon\"; ];"       +
                 "a3;a0 -> a1;a1 -> a2;a2 -> a3[ color=\"green\"; ]; }";
 

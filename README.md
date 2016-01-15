@@ -6,8 +6,6 @@ http://www.graphviz.org/Documentation/dotguide.pdf
 
 
 TODO :
-    1) Graph attributes is not emitted correctly
-    2) EdgeOp has DIRECTED type always ( -> ) and GraphType is not correlate with it
-    3) Subgraphs clusters is not working now
-    4) DIRECTED Graph doesn't writes a name when creates dot representation
-    5) Attribute could not be deleted 
+    !) Graph attributes is not emitted correctly
+    !) EdgeOp has DIRECTED type always ( -> ) and GraphType is not correlate with it
+    !) Subgraphs clusters is not working now
